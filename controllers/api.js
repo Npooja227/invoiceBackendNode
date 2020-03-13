@@ -3,12 +3,16 @@ let sequelize = require('../config');
 
 const client = require('../models/client')(sequelize, Sequelize);
 const address = require('../models/address')(sequelize, Sequelize);
+const product = require('../models/product')(sequelize, Sequelize);
+const tax = require('../models/tax')(sequelize, Sequelize);
 
 // address.belongsTo(client, {foreignKey: 'billing_id'});
 
 getSchema = (schema) => {
     if(schema == 'client') return client;
     else if(schema == 'address') return address;
+    else if(schema == 'product') return product;
+    else if(schema == 'tax') return tax;
 }
 
 module.exports = {
